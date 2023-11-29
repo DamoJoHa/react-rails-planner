@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pushups: 1
+  situps: 1
+
+two:
+  pushups: 1
+  situps: 1
