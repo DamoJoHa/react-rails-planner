@@ -1,2 +1,4 @@
-<%= @entry %>
-<%= react_component("Diary", { diary: @entry.diary }) %>
+<h1><%= @entry.date %></h1>
+<div class="component-grid">
+  <%= render "diaries/component", diary: @entry.diary%>
+</div>

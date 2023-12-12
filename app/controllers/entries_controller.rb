@@ -11,7 +11,6 @@ class EntriesController < ApplicationController
       @entry = Entry.new
       @entry.date = Date.today
       @entry.user = current_user
-      p @entry.date
       @entry.save
     end
   end

@@ -1,10 +1,17 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const Diary = (diary) => {
+const Diary = (props) => {
+  const diary = {
+    content: "Today, I saw a fish in the pond.  It was very, very meaningful.",
+    mood: "Happy"
+  }
   return (
     <React.Fragment>
-      {diary}
+      <div className="diary-block">
+        <p>{diary.content}</p>
+        <p>{diary.mood}</p>
+      </div>
     </React.Fragment>
   )
 }

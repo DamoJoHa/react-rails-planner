@@ -21,5 +21,5 @@ class Entry < ApplicationRecord
   end
 
   validates :date, presence: true
-  validates :date, uniqueness: { scope: :user, message: 'A user may only have one copy of any given date.' }
+  validates :date, uniqueness: { scope: :user, message: 'A user may only have one entry per date.' }
 end
