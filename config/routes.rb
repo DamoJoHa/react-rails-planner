@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :entries, only: [:index]
-  resources :diaries, only: [:update]
+  namespace :api do
+    namespace :v1 do
+      resources :diaries, only: [:show]
+    end
+  end
 
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -9,8 +9,10 @@ const Diary = (props) => {
   return (
     <React.Fragment>
       <div className="diary-block">
-        <p>{diary.content}</p>
-        <p>{diary.mood}</p>
+        <form>
+          <textarea>
+          </textarea>
+        </form>
       </div>
     </React.Fragment>
   )
