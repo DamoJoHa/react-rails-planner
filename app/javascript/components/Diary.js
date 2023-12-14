@@ -4,29 +4,27 @@ import { useEffect } from 'react';
 
 const Diary = ({id}) => {
   const url = `/api/v1/diaries/${id}`
-  const diary = grabData(url)
-  // const content = diary.content
-  // const mood = diary.mood
+  let diary
 
-  function grabData(url) {
+  useEffect(() => {
     fetch(url)
-      .then((response) => {
-        if (response.ok) {
-          return response.json()
-        }
+      .then((response) => response.json())
+      .then((body) => {
+        console.log(body)
+        diary = body
       })
+  }, [diary, url])
 
-  }
   console.log(diary)
-  console.log(diary.id)
 
   return (
     <React.Fragment>
       <div className="diary-block">
-        <p>{diary.id}</p>
+        <p></p>
         <form>
           <textarea>
           </textarea>
+          <button type="submit">Save</button>
         </form>
       </div>
     </React.Fragment>
