@@ -1,4 +1,4 @@
 <h1><%= @entry.date %></h1>
 <div class="component-grid">
-  <%= react_component("Diary") %>
+  <%= react_component("Diary", id: @entry.id)%>
 </div>
