@@ -14,7 +14,8 @@ const Diary = ({id}) => {
         if (response.ok) {
           return response.json()
         }
-      }
+      })
+
   }
   console.log(diary)
   console.log(diary.id)

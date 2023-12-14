@@ -5,7 +5,7 @@ class Api::V1::DiariesController < ApplicationController
     if @diary.user == current_user
       render json: @diary, status: :ok
     else
-      render json: {error: "Unauthorized access attempt"}, status: :forbidden
+      render json: { error: "Unauthorized access attempt" }, status: :forbidden
     end
   end
 end
