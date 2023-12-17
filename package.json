@@ -16,8 +16,8 @@
     "mini-css-extract-plugin": "^2.7.6",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react_ujs": "^3.1.1",
+    "react-dom": "^18.2.0",
     "shakapacker": "7.1.0",
     "style-loader": "^3.3.3",
     "terser-webpack-plugin": "5",
@@ -37,6 +37,7 @@
     "defaults"
   ],
   "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.6.0",
     "webpack-dev-server": "4"
   }
 }
