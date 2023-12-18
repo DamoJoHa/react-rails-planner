@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :entries, only: [:index]
   namespace :api do
     namespace :v1 do
-      resources :diaries, only: [:show]
+      resources :diaries, only: [:show, :update]
     end
   end
 
