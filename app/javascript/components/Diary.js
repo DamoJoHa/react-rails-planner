@@ -49,30 +49,32 @@ const Diary = ({id}) => {
   if (!!diary.id) {
     return (
       <React.Fragment>
-        <div className="diary-block">
+        <div className="component diary-block">
+          <h2>Journal</h2>
           <form onSubmit={handleSubmit}>
             <textarea
               defaultValue={diary.content ? diary.content : ""}
               name="content"
               onChange={handleChange}/>
-            <select
-              type="text"
-              defaultValue={diary.mood ? diary.mood : ""}
-              name="mood"
-              onChange={handleChange}>
-                <option>Positive</option>
-                <option>Neutral</option>
-                <option>Negative</option>
-            </select>
-            <input
-              type="hidden"
-              name="id"
-              value={diary.id} />
-            <button type="submit">Save</button>
+             <input
+                type="hidden"
+                name="id"
+                value={diary.id} />
+            <div>
+              <select
+                type="text"
+                defaultValue={diary.mood ? diary.mood : ""}
+                name="mood"
+                onChange={handleChange}>
+                  <option>Positive</option>
+                  <option>Neutral</option>
+                  <option>Negative</option>
+              </select>
+              <button type="submit" className="button-submit">Save</button>
+            </div>
           </form>
           {/* Notice Bar? */}
         </div>
-        <p>{notice}</p>
       </React.Fragment>
     )
   }

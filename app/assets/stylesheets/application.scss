@@ -1,21 +1,52 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 @import "configs/*";
+@import "components/*";
+
+
+body {
+  background-color: $black;
+  margin: 0;
+  padding: 8px;
+}
+
+h1, h2 {
+  color: white;
+  font-family: $header-font;
+}
 
 h1 {
-  color: $blue;
-  font-family: $bodyfont;
+  font-size: 48px;
+  margin-left: 8px;
+}
+
+h2 {
+  font-size: 28px;
+  margin: 12px 0;
+}
+
+.component-grid {
+  display: flex;
+  flex-direction: row;
+  .component {
+    width: 400px;
+    height: 400px;
+    padding: 8px;
+    margin: 8px;
+    background-color: $dark;
+    border-radius: $rounded;
+  }
+}
+
+.button-submit {
+  font-family: $body-font;
+  font-size: $input-font-size;
+  border-radius: $extra-round;
+  color: $action;
+  background-color: transparent;
+  border: 2px solid $action;
+  padding: 4px 12px;
+}
+
+.button-submit:hover {
+  color: white !important;
+  border-color: white !important;
 }

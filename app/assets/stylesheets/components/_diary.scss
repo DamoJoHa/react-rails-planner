@@ -1,0 +1,23 @@
+.diary-block {
+  form {
+    display: flex;
+    flex-direction: column;
+    // Allows me to change height in future without having to change this
+    height: calc(100% - 60px);
+  }
+  textarea {
+    font-family: $body-font;
+    font-size: $input-font-size;
+    color: white;
+    background-color: transparent;
+    height: calc(100% - 39.5px);
+    border-radius: $rounded;
+    padding: 8px;
+  }
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+}
