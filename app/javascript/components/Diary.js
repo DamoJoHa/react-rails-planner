@@ -50,7 +50,6 @@ const Diary = ({id}) => {
     return (
       <React.Fragment>
         <div className="diary-block">
-          <p>{notice}</p>
           <form onSubmit={handleSubmit}>
             <textarea
               defaultValue={diary.content ? diary.content : ""}
@@ -71,7 +70,9 @@ const Diary = ({id}) => {
               value={diary.id} />
             <button type="submit">Save</button>
           </form>
+          {/* Notice Bar? */}
         </div>
+        <p>{notice}</p>
       </React.Fragment>
     )
   }
