@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 const Diary = ({id}) => {
   const url = `/api/v1/diaries/${id}`
   const [diary, setDiary] = useState([])
+  const [notice, setNotice] = useState("")
 
   useEffect(() => {
     fetch(url)
@@ -13,7 +14,6 @@ const Diary = ({id}) => {
         setDiary(body)
       })
   }, [])
-  console.log(diary)
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -35,25 +35,35 @@ const Diary = ({id}) => {
     }).then((response) => response.json())
       .then((body) => {
         console.log(body)
+        setNotice(body.message)
       })
     // Add logic here to provide feedback to the user (maybe play an animation or something?)
+  }
+
+  function handleChange() {
+    if (notice != "Unsaved Changes") {
+      setNotice("Unsaved Changes")
+    }
   }
 
   if (!!diary.id) {
     return (
       <React.Fragment>
         <div className="diary-block">
+          <p>{notice}</p>
           <form onSubmit={handleSubmit}>
             <textarea
               defaultValue={diary.content ? diary.content : ""}
-              name="content" />
+              name="content"
+              onChange={handleChange}/>
             <select
               type="text"
               defaultValue={diary.mood ? diary.mood : ""}
               name="mood"
-              placeholder="Select your mood">
-                <option>Happy</option>
-                <option>Sad</option>
+              onChange={handleChange}>
+                <option>Positive</option>
+                <option>Neutral</option>
+                <option>Negative</option>
             </select>
             <input
               type="hidden"

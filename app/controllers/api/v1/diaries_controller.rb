@@ -14,7 +14,7 @@ class Api::V1::DiariesController < ApplicationController
     p "UPDATING DIARY"
     p @diary.id
     if @diary.user == current_user && @diary.update(diary_params)
-      render json: @diary, status: :ok
+      render json: {message: "Diary Updated"}, status: :ok
       p "Diary updated"
     else
       render json: { error: "Unauthorized access attempt" }, status: :forbidden
