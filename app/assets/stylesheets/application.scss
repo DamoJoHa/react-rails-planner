@@ -13,5 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import "colors";
 
-@import "diary"
+h1 {
+  color: $blue;
+}
