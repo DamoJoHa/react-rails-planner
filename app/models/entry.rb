@@ -2,8 +2,8 @@ class Entry < ApplicationRecord
   belongs_to :user
 
   # Relations for module models
-  has_one :diary
-  has_one :workout
+  has_one :diary, dependent: :destroy
+  has_one :workout, dependent: :destroy
 
   # Creates the modules it will need
   after_create do |entry|

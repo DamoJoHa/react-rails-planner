@@ -1,4 +1,5 @@
 <h1><%= @entry.date.strftime("%A, %-d %B") %></h1>
 <div class="component-grid">
   <%= react_component("Diary", id: @entry.id)%>
+  <%= react_component("Workout", id: @entry.id) %>
 </div>

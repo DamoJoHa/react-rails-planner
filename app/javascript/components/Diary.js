@@ -1,6 +1,6 @@
 import React from "react"
-import { useState } from 'react'
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react'
+import handleSubmit from "./handleSubmit"
 
 const Diary = ({id}) => {
   const url = `/api/v1/diaries/${id}`
@@ -15,31 +15,6 @@ const Diary = ({id}) => {
       })
   }, [])
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    let data = new FormData(e.target)
-    const token = document.querySelector('[name=csrf-token]').content
-
-    // Uncomment to see form data in console
-    // const formJson = Object.fromEntries(data.entries());
-    // console.log(formJson);
-
-
-    fetch(url, {
-      method: "PATCH",
-      body: data,
-      headers: {
-        'X-Transaction': 'POST Example',
-        'X-CSRF-Token': token
-      }
-    }).then((response) => response.json())
-      .then((body) => {
-        console.log(body)
-        setNotice(body.message)
-      })
-    // Add logic here to provide feedback to the user (maybe play an animation or something?)
-  }
-
   function handleChange() {
     if (notice != "Unsaved Changes") {
       setNotice("Unsaved Changes")
@@ -51,7 +26,7 @@ const Diary = ({id}) => {
       <React.Fragment>
         <div className="component diary-block">
           <h2>Journal</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} action={url}>
             <textarea
               defaultValue={diary.content ? diary.content : ""}
               name="content"

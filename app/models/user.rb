@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :entries
+  has_many :entries, dependent: :destroy
 
   # Allow us to access modules through dated entries
   has_many :diaries, through: :entries
