@@ -69,4 +69,14 @@ h3 {
 .button-submit:hover {
   color: $white !important;
   border-color: $white !important;
+  transition: $med-transition;
+}
+
+textarea:focus-visible, select:focus-visible {
+  outline: none;
+}
+
+textarea:focus {
+  border-color: $accent;
+  transition: $med-transition;
 }

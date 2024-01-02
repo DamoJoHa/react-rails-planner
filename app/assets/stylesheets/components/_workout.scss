@@ -22,8 +22,9 @@
     font-size: $input-font-size;
   }
   button:hover {
-    color: $action;
+    color: $accent;
     cursor: pointer;
+    transition: $med-transition;
   }
   .exercise-input-value {
     font-family: $header-font;
