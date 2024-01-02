@@ -35,10 +35,11 @@ const Workout = ({id}) => {
     }
 
     return (
-      <div>
+      <div className="exercise-input-bar">
         <button onClick={changeValue}>-10</button>
         <button onClick={changeValue}>-1</button>
-        <input type="number" name={name} value={counter} readOnly={true}/>
+        <input type="hidden" name={name} value={counter} readOnly={true}/>
+        <p className="exercise-input-value">{counter}</p>
         <button onClick={changeValue}>+1</button>
         <button onClick={changeValue}>+10</button>
       </div>
@@ -49,27 +50,27 @@ const Workout = ({id}) => {
     <React.Fragment>
       <div className="component double-wide workout-block">
         <form onSubmit={handleSubmit} action={url}>
-          <div>
+          <div className="component-header">
             <h2>Workout</h2>
             <button type="submit" className="button-submit">Save</button>
           </div>
-            <input type="hidden"
-                  name="id"
-                  value={workout.id} />
-            <div className="row">
-              <div className="exercise-block">
-                <img src={pushup}
-                  alt="a pixel art situp"
-                  className="img-exercise"/>
-                <FormInput value={workout.pushups} name={"pushups"} />
-              </div>
-              <div className="exercise-block">
-                <img src={situp}
-                  alt="a pixel art pushup"
-                  className="img-exercise"/>
-                <FormInput value={workout.situps} name={"situps"} />
-              </div>
+          <input type="hidden"
+                name="id"
+                value={workout.id} />
+          <div className="row">
+            <div className="exercise-block">
+              <img src={pushup}
+                alt="a pixel art situp"
+                className="img-exercise"/>
+              <FormInput value={workout.pushups} name={"pushups"} />
             </div>
+            <div className="exercise-block">
+              <img src={situp}
+                alt="a pixel art pushup"
+                className="img-exercise"/>
+              <FormInput value={workout.situps} name={"situps"} />
+            </div>
+          </div>
         </form>
       </div>
     </React.Fragment>

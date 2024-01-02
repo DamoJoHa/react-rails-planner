@@ -9,7 +9,7 @@ body {
 }
 
 h1, h2, h3 {
-  color: white;
+  color: $white;
   font-family: $header-font;
 }
 
@@ -40,6 +40,11 @@ h3 {
     background-color: $dark;
     border-radius: $rounded;
   }
+  .component-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
   .double-wide{
     width: 816px
   }
@@ -58,9 +63,10 @@ h3 {
   background-color: transparent;
   border: 2px solid $action;
   padding: 4px 12px;
+  align-self: center;
 }
 
 .button-submit:hover {
-  color: white !important;
-  border-color: white !important;
+  color: $white !important;
+  border-color: $white !important;
 }

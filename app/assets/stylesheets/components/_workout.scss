@@ -9,3 +9,25 @@
 .img-exercise {
   width: 400px;
 }
+
+.exercise-input-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  button {
+    font-family: $header-font;
+    background-color: transparent;
+    border: none;
+    color: $white;
+    font-size: $input-font-size;
+  }
+  button:hover {
+    color: $action;
+    cursor: pointer;
+  }
+  .exercise-input-value {
+    font-family: $header-font;
+    color: $action;
+    font-size: 20px;
+  }
+}

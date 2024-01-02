@@ -8,16 +8,13 @@
   textarea {
     font-family: $body-font;
     font-size: $input-font-size;
-    color: white;
+    color: $white;
     background-color: transparent;
     height: calc(100% - 39.5px);
     border-radius: $rounded;
     padding: 8px;
   }
-  div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  select {
     margin-top: 8px;
   }
 }
