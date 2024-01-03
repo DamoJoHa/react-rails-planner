@@ -1,0 +1,82 @@
+@import "configs/*";
+@import "components/*";
+
+
+body {
+  background-color: $black;
+  margin: 0;
+  padding: 8px;
+}
+
+h1, h2, h3 {
+  color: $white;
+  font-family: $header-font;
+}
+
+h1 {
+  font-size: 48px;
+  margin-left: 8px;
+}
+
+h2 {
+  font-size: 28px;
+  margin: 12px 0;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+
+
+.component-grid {
+  display: flex;
+  flex-direction: row;
+  .component {
+    width: 400px;
+    height: 400px;
+    padding: 8px;
+    margin: 8px;
+    background-color: $dark;
+    border-radius: $rounded;
+  }
+  .component-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .double-wide{
+    width: 816px
+  }
+  .row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.button-submit {
+  font-family: $body-font;
+  font-size: $input-font-size;
+  border-radius: $extra-round;
+  color: $action;
+  background-color: transparent;
+  border: 2px solid $action;
+  padding: 4px 12px;
+  align-self: center;
+}
+
+.button-submit:hover {
+  color: $white !important;
+  border-color: $white !important;
+  transition: $med-transition;
+}
+
+textarea:focus-visible, select:focus-visible {
+  outline: none;
+}
+
+textarea:focus {
+  border-color: $accent;
+  transition: $med-transition;
+}

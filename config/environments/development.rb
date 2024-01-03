@@ -67,4 +67,9 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # SCSS Config
+  config.sass.preferred_syntax = :scss
+  config.sass.line_comments = false
+  config.sass.cache = false
 end

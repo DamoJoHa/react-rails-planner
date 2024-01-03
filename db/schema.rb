@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_29_151256) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_19_231919) do
   create_table "diaries", force: :cascade do |t|
     t.text "content"
     t.string "mood"
@@ -41,8 +41,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_29_151256) do
   end
 
   create_table "workouts", force: :cascade do |t|
-    t.integer "pushups"
-    t.integer "situps"
+    t.integer "pushups", default: 0
+    t.integer "situps", default: 0
     t.integer "entry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
