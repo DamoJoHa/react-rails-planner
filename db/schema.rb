@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_08_135426) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_08_154039) do
   create_table "diaries", force: :cascade do |t|
     t.text "content"
     t.string "mood"
@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_135426) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
-    t.boolean "daily", null: false
+    t.boolean "daily", default: false, null: false
     t.boolean "complete", default: false
     t.integer "user_id"
     t.datetime "created_at", null: false

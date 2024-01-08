@@ -8,8 +8,8 @@ class Task < ApplicationRecord
   private
 
   def flip_flop_daily
-    # Check if the task is daily, and if the completion date is today
-    return unless daily && date_completed < Date.today
+    # Check if the task is daily, and if the completion date is in the past (could be cleaner)
+    return unless daily && date_completed && date_completed < Date.today
 
     self.complete = false
     save

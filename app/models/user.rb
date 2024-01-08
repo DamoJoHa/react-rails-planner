@@ -6,6 +6,11 @@ class User < ApplicationRecord
   has_many :diaries, through: :entries
   has_many :workouts, through: :entries
 
+  # Logic for filtering tasks
+  def current_tasks
+    tasks
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

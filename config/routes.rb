@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :diaries, only: [:show, :update]
       resources :workouts, only: [:show, :update]
+      resources :tasks, only: [:create, :index, :update]
     end
   end
 
