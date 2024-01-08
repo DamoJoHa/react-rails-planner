@@ -4,21 +4,28 @@ import { useEffect, useState } from "react"
 const Tasks = (props) => {
   const url = '/api/v1/tasks/'
   const [tasks, setTasks] = useState(null)
-  const [formMode, setFormMode] = useState(true)
-
-  let tasksList
+  const [formMode, setFormMode] = useState(false)
+  const buttonText = formMode ? "Cancel" : "New"
 
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
       .then((body) => {
-        console.log(body)
-        setTasks(body.map(task =>
-          <li key={task.id}>{task.name}</li>
-        ))
+        setTasks(buildList(body))
       })
   }, [])
 
+  function buildList(body) {
+    console.log(body)
+    const list = body.map(task =>
+      <li key={task.id}>{task.name}</li>
+    )
+    return list
+  }
+
+  function changeMode() {
+    setFormMode(!formMode)
+  }
 
   function newTask(e) {
     e.preventDefault()
@@ -39,7 +46,8 @@ const Tasks = (props) => {
       }
     }).then((response) => response.json())
       .then((body) => {
-        console.log(body)
+        setTasks(buildList(body))
+        changeMode()
       })
   }
 
@@ -60,7 +68,11 @@ const Tasks = (props) => {
   }
 
   function TasksList() {
-
+    return (
+      <ul>
+        {tasks}
+      </ul>
+    )
   }
 
   function TasksBody() {
@@ -73,11 +85,14 @@ const Tasks = (props) => {
       <TasksList />
     )
   }
+
+
   return (
     <React.Fragment>
       <div className="component tasks-block">
-        <div className="component_header">
+        <div className="component-header">
           <h2>Tasks</h2>
+          <button onClick={changeMode} className="button button-secondary">{buttonText}</button>
         </div>
         <TasksBody />
       </div>
