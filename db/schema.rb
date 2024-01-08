@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_19_231919) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_08_135426) do
   create_table "diaries", force: :cascade do |t|
     t.text "content"
     t.string "mood"
@@ -26,6 +26,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_19_231919) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.boolean "daily", null: false
+    t.boolean "complete", default: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "date_completed"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,5 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_19_231919) do
 
   add_foreign_key "diaries", "entries"
   add_foreign_key "entries", "users"
+  add_foreign_key "tasks", "users"
   add_foreign_key "workouts", "entries"
 end
