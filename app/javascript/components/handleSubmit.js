@@ -5,8 +5,8 @@ function handleSubmit(e) {
   const token = document.querySelector('[name=csrf-token]').content
 
   // Uncomment to see form data in console
-  // const formJson = Object.fromEntries(data.entries());
-  // console.log(formJson);
+  const formJson = Object.fromEntries(data.entries());
+  console.log(formJson);
 
 
   fetch(url, {

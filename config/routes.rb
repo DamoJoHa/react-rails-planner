@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       resources :diaries, only: [:show, :update]
       resources :workouts, only: [:show, :update]
       resources :tasks, only: [:create, :index, :update]
+      # The route below only flip-flops completedness, and takes an empty body
+      patch "tasks/:id/complete", to: "tasks#mark_complete"
     end
   end
 

@@ -15,16 +15,31 @@ class Api::V1::TasksController < ApplicationController
     render json: @tasks, status: :ok
   end
 
-  def update
+  def mark_complete
     @task = Task.find(params[:id])
-    "UPDATING TASK"
-    p @workout.id
-    if @workout.user == current_user && @workout.update(workout_params)
-      render json: {message: "TASK Updated"}, status: :ok
-      p "Workout updated"
+    if @task.user == current_user
+      @task.complete = @task.complete ? false : true
+      @task.save
+      index
     else
       render json: { error: "Unauthorized access attempt" }, status: :forbidden
-      p "Unsuccesful workout update"
+      p "Unsuccesful task update"
+    end
+  end
+
+
+  # The rendering needs to change
+  def update
+    @task = Task.find(params[:id])
+    p @task
+    p "UPDATING TASK"
+    p @task.id
+    if @task.user == current_user && @task.update(task_params)
+      render json: {message: "Task Updated"}, status: :ok
+      p "Task updated"
+    else
+      render json: { error: "Unauthorized access attempt" }, status: :forbidden
+      p "Unsuccesful task update"
     end
   end
 
