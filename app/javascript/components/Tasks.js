@@ -2,6 +2,7 @@ import React from "react"
 import { useEffect, useState } from "react"
 import handleSubmit from "./handleSubmit"
 
+
 const Tasks = () => {
   const url = '/api/v1/tasks/'
   const [tasks, setTasks] = useState(null)
@@ -16,16 +17,6 @@ const Tasks = () => {
       })
   }, [])
 
-  function buildList(body) {
-    console.log(body)
-    const list = body.map(task =>
-      <li key={task.id}>
-        <h3>{task.name}</h3>
-        <input type="checkbox" data-task-id={task.id} defaultChecked={task.complete} onChange={flipFlop} />
-      </li>
-    )
-    setTasks(list)
-  }
 
   function flipFlop(e) {
     const token = document.querySelector('[name=csrf-token]').content
@@ -47,19 +38,16 @@ const Tasks = () => {
       })
   }
 
+
   function changeMode() {
     setFormMode(!formMode)
   }
+
 
   function newTask(e) {
     e.preventDefault()
     const data = new FormData(e.target)
     const token = document.querySelector('[name=csrf-token]').content
-
-    // Uncomment to see form data in console
-    // const formJson = Object.fromEntries(data.entries());
-    // console.log(formJson);
-
 
     fetch(url, {
       method: "POST",
@@ -92,22 +80,32 @@ const Tasks = () => {
     )
   }
 
-  function TasksList() {
-    return (
-      <ul>
-        {tasks}
-      </ul>
+
+  // Rendering Stuff
+
+  function buildList(body) {
+    console.log(body)
+    // This sorting is wonky as hell, but it works
+    body.sort((t1, t2) => {
+      const v1 = t1.complete ? 1 : 0;
+      const v2 = t2.complete ? 1 : 0;
+      return v2 - v1
+    })
+    const list = body.map(task =>
+      <li key={task.id} class="task-list-item">
+        <input class="task-list-bullet" type="checkbox" data-task-id={task.id} defaultChecked={task.complete} onChange={flipFlop} />
+        <h3 className="task-list-item-title">{task.name}</h3>
+      </li>
     )
+    setTasks(list)
   }
 
-  function TasksBody() {
-    if (formMode) {
-      return (
-        <NewTaskForm />
-      )
-    }
+
+  function TasksList() {
     return (
-      <TasksList />
+      <ul id="task-list">
+        {tasks}
+      </ul>
     )
   }
 
@@ -119,7 +117,7 @@ const Tasks = () => {
           <h2>Tasks</h2>
           <button onClick={changeMode} className="button button-secondary">{buttonText}</button>
         </div>
-        <TasksBody />
+        { formMode ? <NewTaskForm /> : <TasksList /> }
       </div>
     </React.Fragment>
   )

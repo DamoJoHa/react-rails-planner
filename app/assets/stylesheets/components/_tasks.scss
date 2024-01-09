@@ -2,3 +2,27 @@
   display: flex;
   flex-direction: column;
 }
+
+#task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-list-item {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+}
+
+.completed {
+
+}
+
+.task-list-item-title {
+  padding-left: 20px;
+  align-self: center;
+}
+
+.task-list-bullet {
+  align-self: center;
+}
