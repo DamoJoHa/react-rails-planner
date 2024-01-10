@@ -9,7 +9,8 @@ class User < ApplicationRecord
   # Logic for filtering tasks
   def current_tasks
     today = Date.today
-    tasks.filter()
+    # Probably not the most effecient way to do this
+    tasks.select { |task| !task.complete || task.date_completed == today || task.daily }
   end
 
   # Include default devise modules. Others available are:
