@@ -47,7 +47,7 @@ h3 {
     justify-content: space-between;
   }
   .double-wide{
-    width: 816px
+    width: 832px
   }
   .row{
     display: flex;
@@ -85,6 +85,16 @@ textarea:focus {
 .button-secondary {
   color: $accent;
   border-color: $accent;
+}
+
+.button-warning {
+  color: $alert;
+  border-color: $alert;
+}
+
+.button:disabled {
+  color: $grey;
+  border-color: $grey;
 }
 
 .hidden {

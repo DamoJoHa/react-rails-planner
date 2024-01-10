@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :diaries, only: [:show, :update]
       resources :workouts, only: [:show, :update]
-      resources :tasks, only: [:create, :index, :update]
+      resources :tasks, only: [:create, :index, :destroy]
       # The route below only flip-flops completedness, and takes an empty body
       patch "tasks/:id/complete", to: "tasks#mark_complete"
     end

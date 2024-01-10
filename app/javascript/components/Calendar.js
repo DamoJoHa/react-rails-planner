@@ -10,7 +10,7 @@ const Calendar = (props) => {
   const month = today.getMonth()
   const year = today.getFullYear()
 
-  console.log(today.getDay())
+  // console.log(today.getDay())
 
 
   const startDate = new Date(year, month, 1)
@@ -30,7 +30,8 @@ const Calendar = (props) => {
     active.setDate(active.getDate() + 1)
   }
 
-  console.log(days)
+  // console.log(days)
+  
   const dayList = days.map(day =>
     <h3 key={`${day}/${month}/${year}`}>{day}</h3>
   )

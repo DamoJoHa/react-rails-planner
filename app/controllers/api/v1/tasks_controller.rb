@@ -27,21 +27,15 @@ class Api::V1::TasksController < ApplicationController
     end
   end
 
-
-  # The rendering needs to change
-  # def update
-  #   @task = Task.find(params[:id])
-  #   p @task
-  #   p "UPDATING TASK"
-  #   p @task.id
-  #   if @task.user == current_user && @task.update(task_params)
-  #     render json: {message: "Task Updated"}, status: :ok
-  #     p "Task updated"
-  #   else
-  #     render json: { error: "Unauthorized access attempt" }, status: :forbidden
-  #     p "Unsuccesful task update"
-  #   end
-  # end
+  def destroy
+    @task = Task.find(params[:id])
+    if @task.user == current_user && @task.destroy
+      index
+    else
+      render json: { error: "Failed to delete" }, status: :forbidden
+      p "Unsuccesful task deletion"
+    end
+  end
 
   private
 

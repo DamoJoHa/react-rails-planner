@@ -18,7 +18,7 @@ const Workout = ({id}) => {
         setWorkout(body)
       })
   }, [])
-  console.log(workout)
+  // console.log(workout)
 
 
   // Form Input Stuff
