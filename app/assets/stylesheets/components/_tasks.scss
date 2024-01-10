@@ -7,22 +7,31 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
+  max-height: 340px;
+  overflow-y: scroll;
 }
 
 .task-list-item {
   display: grid;
-  grid-template-columns: 20px 1fr;
+  grid-template-columns: 20px 1fr 0px;
+  input {
+    align-self: center;
+  }
+  h3 {
+    padding-left: 20px;
+    align-self: center;
+  }
+
+}
+
+.task-list-item:hover {
+  grid-template-columns: 20px 1fr 60px;
+  .hidden {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .completed {
-
-}
-
-.task-list-item-title {
-  padding-left: 20px;
-  align-self: center;
-}
-
-.task-list-bullet {
-  align-self: center;
+  background-color: $shadow;
 }

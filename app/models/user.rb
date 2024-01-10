@@ -8,7 +8,8 @@ class User < ApplicationRecord
 
   # Logic for filtering tasks
   def current_tasks
-    tasks
+    today = Date.today
+    tasks.filter()
   end
 
   # Include default devise modules. Others available are:

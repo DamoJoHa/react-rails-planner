@@ -3,7 +3,7 @@ class Task < ApplicationRecord
 
   after_find :flip_flop_daily
 
-  after_save :track_completion
+  before_save :track_completion
 
   validates :name, presence: true
 
@@ -19,6 +19,6 @@ class Task < ApplicationRecord
   end
 
   def track_completion
-    self.date_completed = Date.today if complete && date_completed.nil?
+    self.date_completed = Date.today if complete && !date_completed
   end
 end

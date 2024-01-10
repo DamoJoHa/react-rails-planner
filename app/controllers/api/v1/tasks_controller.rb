@@ -29,19 +29,19 @@ class Api::V1::TasksController < ApplicationController
 
 
   # The rendering needs to change
-  def update
-    @task = Task.find(params[:id])
-    p @task
-    p "UPDATING TASK"
-    p @task.id
-    if @task.user == current_user && @task.update(task_params)
-      render json: {message: "Task Updated"}, status: :ok
-      p "Task updated"
-    else
-      render json: { error: "Unauthorized access attempt" }, status: :forbidden
-      p "Unsuccesful task update"
-    end
-  end
+  # def update
+  #   @task = Task.find(params[:id])
+  #   p @task
+  #   p "UPDATING TASK"
+  #   p @task.id
+  #   if @task.user == current_user && @task.update(task_params)
+  #     render json: {message: "Task Updated"}, status: :ok
+  #     p "Task updated"
+  #   else
+  #     render json: { error: "Unauthorized access attempt" }, status: :forbidden
+  #     p "Unsuccesful task update"
+  #   end
+  # end
 
   private
 

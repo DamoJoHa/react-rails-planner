@@ -86,3 +86,9 @@ textarea:focus {
   color: $accent;
   border-color: $accent;
 }
+
+.hidden {
+  visibility: none;
+  opacity: 0;
+  transition: opacity $med-transition;
+}
