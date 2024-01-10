@@ -28,7 +28,7 @@ const Diary = ({id}) => {
           <form onSubmit={handleSubmit} action={url}>
             <div className="component-header">
               <h2>Journal</h2>
-              <button type="submit" className="button-submit">Save</button>
+              <button type="submit" className="button">Save</button>
             </div>
             <textarea
               defaultValue={diary.content ? diary.content : ""}

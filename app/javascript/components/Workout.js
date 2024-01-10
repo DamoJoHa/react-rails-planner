@@ -18,7 +18,7 @@ const Workout = ({id}) => {
         setWorkout(body)
       })
   }, [])
-  console.log(workout)
+  // console.log(workout)
 
 
   // Form Input Stuff
@@ -52,7 +52,7 @@ const Workout = ({id}) => {
         <form onSubmit={handleSubmit} action={url}>
           <div className="component-header">
             <h2>Workout</h2>
-            <button type="submit" className="button-submit">Save</button>
+            <button type="submit" className="button">Save</button>
           </div>
           <input type="hidden"
                 name="id"

@@ -8,7 +8,7 @@ body {
   padding: 8px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, label {
   color: $white;
   font-family: $header-font;
 }
@@ -25,6 +25,12 @@ h2 {
 
 h3 {
   font-size: 16px;
+}
+
+label {
+  font-size: 16px;
+  align-self: center;
+  margin-right: 8px;
 }
 
 
@@ -47,7 +53,7 @@ h3 {
     justify-content: space-between;
   }
   .double-wide{
-    width: 816px
+    width: 832px
   }
   .row{
     display: flex;
@@ -56,7 +62,7 @@ h3 {
   }
 }
 
-.button-submit {
+.button {
   font-family: $body-font;
   font-size: $input-font-size;
   border-radius: $extra-round;
@@ -67,17 +73,55 @@ h3 {
   align-self: center;
 }
 
-.button-submit:hover {
+.button:hover {
   color: $white !important;
   border-color: $white !important;
   transition: $med-transition;
 }
 
-textarea:focus-visible, select:focus-visible {
+input[type="checkbox"] {
+  background-color: $white;
+  align-self: center;
+  margin: 0;
+}
+
+textarea:focus-visible, select:focus-visible, input:focus-visible {
   outline: none;
 }
 
-textarea:focus {
+textarea, input[type="text"] {
+  font-family: $body-font;
+  font-size: $input-font-size;
+  color: $white;
+  background-color: transparent;
+  resize: none;
+  border: 1px solid $white;
+  border-radius: $rounded;
+  padding: 8px;
+}
+
+textarea:focus, input[type="text"]:focus {
   border-color: $accent;
   transition: $med-transition;
+}
+
+.button-secondary {
+  color: $accent;
+  border-color: $accent;
+}
+
+.button-warning {
+  color: $alert;
+  border-color: $alert;
+}
+
+.button:disabled {
+  color: $grey;
+  border-color: $grey;
+}
+
+.hidden {
+  visibility: none;
+  opacity: 0;
+  transition: opacity $med-transition;
 }

@@ -1,0 +1,44 @@
+#new-task-form {
+  display: flex;
+  flex-direction: column;
+  div {
+    margin: 8px 0px;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+#task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+.task-list-item {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  input {
+    align-self: center;
+  }
+  h3 {
+    padding-left: 20px;
+    align-self: center;
+  }
+  div {
+    display: grid;
+    grid-template-columns: 1fr 0px;
+  }
+  div:hover {
+    grid-template-columns: 1fr 80px;
+    .hidden {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.completed {
+  background-color: $shadow;
+}
