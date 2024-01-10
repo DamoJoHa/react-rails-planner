@@ -75,7 +75,7 @@ const Tasks = () => {
           <label htmlFor="daily">Daily:</label>
           <input type="checkbox" value={true} name="daily" />
         </div>
-        <button type="submit" className="button-submit">Create</button>
+        <button type="submit" className="button">Create</button>
       </form>
     )
   }
@@ -111,8 +111,10 @@ const Tasks = () => {
     const list = body.map(task =>
       <li key={task.id} className="task-list-item">
         <input type="checkbox" data-task-id={task.id} defaultChecked={task.complete} onChange={flipFlop} />
-        <h3>{task.name}</h3>
-        <button className="button button-warning hidden" action={url + task.id} onClick={deleteTask}>Delete</button>
+        <div>
+          <h3>{task.name}</h3>
+          <button className="button button-warning hidden" action={url + task.id} onClick={deleteTask}>Delete</button>
+        </div>
       </li>
     )
     setTasks(list)
