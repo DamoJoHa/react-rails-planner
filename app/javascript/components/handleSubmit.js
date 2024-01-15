@@ -1,7 +1,8 @@
-function handleSubmit(e) {
-  e.preventDefault()
-  const data = new FormData(e.target)
-  const url = e.target.action
+function handleSubmit(formID) {
+  form = document.getElementById(formID)
+  console.log(form)
+  const data = new FormData(form)
+  const url = form.action
   const token = document.querySelector('[name=csrf-token]').content
 
   // Uncomment to see form data in console

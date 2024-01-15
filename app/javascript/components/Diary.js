@@ -4,6 +4,8 @@ import handleSubmit from "./handleSubmit"
 
 const Diary = ({id}) => {
   const url = `/api/v1/diaries/${id}`
+  const formID = "diary-form"
+
   const [diary, setDiary] = useState([])
   const [notice, setNotice] = useState("")
 
@@ -15,17 +17,33 @@ const Diary = ({id}) => {
       })
   }, [])
 
-  function handleChange() {
+  useEffect(() => {
+    const delayDebounceID = setTimeout(() => {
+      handleSubmit(formID)
+      console.log("Diary Update loop ran")
+      // console.log(diary);
+    }, 1000);
+    return () => clearTimeout(delayDebounceID)
+  }, [diary])
+
+  function handleChange(e) {
+    // Notice logic will need a lot of work
     if (notice != "Unsaved Changes") {
       setNotice("Unsaved Changes")
     }
+
+
+    const formData = new FormData(form)
+    const JSON = Object.fromEntries(formData.entries())
+    // console.log(JSON)
+    setDiary(JSON)
   }
 
   if (!!diary.id) {
     return (
       <React.Fragment>
         <div className="component diary-block">
-          <form onSubmit={handleSubmit} action={url}>
+          <form id={formID} onSubmit={handleSubmit} action={url}>
             <div className="component-header">
               <h2>Journal</h2>
               <button type="submit" className="button">Save</button>
