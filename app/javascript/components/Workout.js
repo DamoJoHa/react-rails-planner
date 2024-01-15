@@ -5,26 +5,30 @@ import handleSubmit from "./handleSubmit"
 import pushup from "../../assets/images/pushup.png"
 import situp from "../../assets/images/situp.png"
 
-const Workout = ({id}) => {
-  const url = `/api/v1/workouts/${id}`
-  const [workout, setWorkout] = useState([])
+const Workout = ({initial}) => {
+  const url = `/api/v1/workouts/${initial.id}`
+  const formID = "workout-form"
 
-  // Grab data from server
-
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((body) => {
-        setWorkout(body)
-      })
-  }, [])
-  // console.log(workout)
-
+  // Update logic is handled by inputs
 
   // Form Input Stuff
 
   function FormInput({value, name}) {
     const [counter, setCounter] = useState(value)
+    const [skip, setSkip] = useState(true)
+
+    useEffect(() => {
+      // This is probably not how this should be done, but it works to skip submission on render
+      if (skip) {
+        setSkip(false)
+        return
+      }
+      const delayDebounceID = setTimeout(() => {
+        handleSubmit(document.getElementById(formID))
+        console.log("Workout update loop ran")
+      }, 2000);
+      return () => clearTimeout(delayDebounceID)
+    }, [counter])
 
     function changeValue(e) {
       e.preventDefault()
@@ -49,26 +53,25 @@ const Workout = ({id}) => {
   return (
     <React.Fragment>
       <div className="component double-wide workout-block">
-        <form onSubmit={handleSubmit} action={url}>
+        <form id={formID} action={url}>
           <div className="component-header">
             <h2>Workout</h2>
-            <button type="submit" className="button">Save</button>
           </div>
           <input type="hidden"
                 name="id"
-                value={workout.id} />
+                value={initial.id} />
           <div className="row">
             <div className="exercise-block">
               <img src={pushup}
                 alt="a pixel art situp"
                 className="img-exercise"/>
-              <FormInput value={workout.pushups} name={"pushups"} />
+              <FormInput value={initial.pushups} name={"pushups"} />
             </div>
             <div className="exercise-block">
               <img src={situp}
                 alt="a pixel art pushup"
                 className="img-exercise"/>
-              <FormInput value={workout.situps} name={"situps"} />
+              <FormInput value={initial.situps} name={"situps"} />
             </div>
           </div>
         </form>
