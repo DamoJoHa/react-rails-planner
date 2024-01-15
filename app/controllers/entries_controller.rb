@@ -5,13 +5,14 @@ class EntriesController < ApplicationController
     today = Entry.find { |entry| entry.date == Date.today }
     if today
       p "Loading today's data"
-      @entry = today
+      @entry = today.compile
     else
       p "Creating new entry"
-      @entry = Entry.new
-      @entry.date = Date.today
-      @entry.user = current_user
-      @entry.save
+      new_entry = Entry.new
+      new_entry.date = Date.today
+      new_entry.user = current_user
+      new_entry.save
+      @entry = new_entry.compile
     end
   end
 end

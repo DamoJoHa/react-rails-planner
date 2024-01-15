@@ -1,7 +1,2 @@
-<h1><%= @entry.date.strftime("%A, %-d %B") %></h1>
-<div class="component-grid">
-  <%= react_component("Diary", id: @entry.id)%>
-  <%= react_component("Workout", id: @entry.id) %>
-  <%= react_component("Calendar") %>
-  <%= react_component("Tasks") %>
-</div>
+<h1><%= @entry[:date].strftime("%A, %-d %B") %></h1>
+<%= react_component("Wrapper", {entry: @entry})%>
