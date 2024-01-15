@@ -19,7 +19,7 @@ const Diary = ({id}) => {
 
   useEffect(() => {
     const delayDebounceID = setTimeout(() => {
-      handleSubmit(formID)
+      handleSubmit(document.getElementById(formID))
       console.log("Diary Update loop ran")
       // console.log(diary);
     }, 1000);
@@ -33,10 +33,10 @@ const Diary = ({id}) => {
     }
 
 
-    const formData = new FormData(form)
-    const JSON = Object.fromEntries(formData.entries())
-    // console.log(JSON)
-    setDiary(JSON)
+    const formData = new FormData(document.getElementById(formID))
+    const newDiary = Object.fromEntries(formData.entries())
+    console.log(newDiary)
+    setDiary(newDiary)
   }
 
   if (!!diary.id) {
