@@ -125,3 +125,13 @@ textarea:focus, input[type="text"]:focus {
   opacity: 0;
   transition: opacity $med-transition;
 }
+
+i {
+  align-self: center;
+  font-size: 32px;
+  color: $accent;
+}
+
+i.caution-icon {
+  color: $grey;
+}

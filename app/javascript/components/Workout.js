@@ -9,7 +9,10 @@ const Workout = ({initial}) => {
   const url = `/api/v1/workouts/${initial.id}`
   const formID = "workout-form"
 
+  const [current, setCurrent] = useState(true)
+
   // Update logic is handled by inputs
+
 
   // Form Input Stuff
 
@@ -25,7 +28,7 @@ const Workout = ({initial}) => {
       }
       const delayDebounceID = setTimeout(() => {
         handleSubmit(document.getElementById(formID))
-        console.log("Workout update loop ran")
+        // console.log("Workout update loop ran")
       }, 2000);
       return () => clearTimeout(delayDebounceID)
     }, [counter])
