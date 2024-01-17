@@ -20,6 +20,10 @@ class Entry < ApplicationRecord
     p 'Created Diary'
   end
 
+  def compile
+    { workout: workout, diary: diary, date: date }
+  end
+
   validates :date, presence: true
   validates :date, uniqueness: { scope: :user, message: 'A user may only have one entry per date.' }
 end
