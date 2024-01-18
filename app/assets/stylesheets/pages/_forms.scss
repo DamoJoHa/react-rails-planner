@@ -16,6 +16,23 @@
       padding: 8px;
       border-radius: $rounded;
       font-size: 16px;
+      height: 22.5px;
+      align-self: center;
     }
+    em {
+      color: $white;
+    }
+  }
+  div.remember {
+    display: flex;
+  }
+  #user_remember_me {
+    align-self: center;
+    margin-right: 8px;
+  }
+  .actions {
+    padding-top: 12px;
+    display: flex;
+    justify-content: center;
   }
 }
