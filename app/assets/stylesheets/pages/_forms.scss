@@ -1,0 +1,55 @@
+.form {
+  border: 1px solid $primary;
+  width: 560px;
+  margin: 24px auto;
+  padding: 24px;
+
+  div {
+    margin: 16px 0;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .field {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    label {
+      margin: 0;
+    }
+    input {
+      padding: 8px;
+      border-radius: $rounded;
+      font-size: 16px;
+      height: 22.5px;
+      align-self: center;
+    }
+    em {
+      color: $white;
+    }
+  }
+
+  div.remember {
+    display: flex;
+  }
+
+  #user_remember_me {
+    align-self: center;
+    margin-right: 8px;
+  }
+
+  .actions {
+    padding-top: 12px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.simple-form-button {
+  margin-top: 12px !important;
+  color: $accent !important;
+  border: 1px solid $accent !important;
+  display: inline-block;
+}
